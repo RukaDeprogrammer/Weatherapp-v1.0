@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white: whitesmoke;
+    --dim-white: #f5f5f570;
+    --panel-bg: #111;
+    --seethrough-bg: #1118;
+    --green: rgb(12, 77, 77);
+    
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--white);
+    background-color: var(--panel-bg);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 1em;
+}
+
+body {
+    display: flex;
+    height: 100svh;
+    flex-direction: column;
+}
+
+.logo {
+    color: transparent;
+    background-image: linear-gradient(-90deg, var(--white), var(--white));
+    background-clip: text;
+    color: var(--dim-white);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    animation: 2s linear 1 forwards logo;
+}
+
+.logo:hover {
+    cursor: default;
+    animation: 1s linear 1 forwards wiggle, 2s linear 1 forwards logo;
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotateZ(0deg);
+        background-size: 100% 100%;
+    }
+    20%, 40%, 60%, 80% {
+        background-size: 100% 100%;
+        transform: rotateZ(3deg);
+    }
+    30%, 50%, 70%, 90% {
+        background-size: 100% 100%;
+        transform: rotateZ(-3deg);
+    }
+}
+
+@keyframes logo {
+    0% {
+        background-size: 0% 100%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
+}
+
+nav ul {
+    list-style: none;
+    gap: 1.3em;
+    display: flex;
+    font-size: 1.4rem;
+}
+
+.nav-link {
+    color: var(--dim-white);
+    transition: color .5s;
+}
+
+.github {
+    --link-color: whitesmoke;
+}
+
+.instagram {
+    --link-color: #F104F1;
+}
+
+.youtube {
+    --link-color: #FF0000;
+}
+
+.nav-link:hover {
+    color: var(--link-color);
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    color: var(--white);
+    height: 40px;
+    background-color: var(--panel-bg);
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 1em;
+    align-items: center;
+}
+
+footer div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap: .3em;
+}
+
+.footer-link {
+    text-decoration: none;
+    overflow: hidden;
+    height: 1.2em;
+    position: relative;
+}
+
+.footer-link::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--dim-white);
+    bottom: 0px;
+    transition: background-color .5s;
+    border-radius: 20%;
+}
+
+.default-link {
+    color: var(--dim-white);
+    transition: transform .5s;
+    width: max-content;
+}
+
+.hover-link {
+    color: var(--white);
+    transition: transform .5s;
+    width: max-content;
+}
+
+.footer-link:hover .default-link,
+.footer-link:hover .hover-link {
+    transform: translateY(-1.2em);
+}
+
+.footer-link:hover::after {
+    background-color: var(--white);
+}
+
+.seperator {
+    width: 2px;
+    height: 100%;
+    background-color: var(--dim-white);
+}
+
+main {
+    padding-block: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    min-width: 200px;
+    height: 2.5rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+.wrapper {
+    flex-grow: 1;
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.day-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
+    background-color: var(--panel-bg);
+    border-radius: 10px;
+    padding: 1em;
+    width: 13%;
+    transition: width .7s;
+    background-color: var(--green);
+}
+
+.day-card .date-container .day {
+    font-weight: 900;
+}
+
+.day-card .date-container .date {
+    font-size: .8rem;
+}
+
+.day-card .extra-wrapper {
+    display: none;
+}
+
+.day-card .condition-container .condition {
+    display: none;
+    font-weight: 900;
+    font-size: 2.5rem;
+}
+
+.day-card .condition-container .temp {
+    display: flex;
+    align-items: flex-end;
+    gap: .3em;
+}
+
+.day-card.open .condition-container .temp {
+    font-size: .95rem;
+    margin-top: .5em;
+    gap: 1em;
+    color: var(--dim-white);
+    font-weight: 900;
+}
+
+.day-card .condition-container .temp .temp-max {
+    font-size: 1.1rem;
+    color: var(--white);
+}
+
+.day-card .date-container,
+.day-card .condition-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.day-card.open {
+    width: 45%;
+}
+
+.day-card.open .extra-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.day-card.open .condition-container .condition {
+    display: block;
+}
+
+
+
+.wind, .humidity-container, .rain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--seethrough-bg);
+    width: 8em;
+    height: 8em;
+    border-radius: 5px;
+    gap: .5em;
+}
+
+.wind img, .humidity-container img, .rain img {
+    width: 3.5em;
+    filter: invert(100%);
+}
+
+.functionality {
+    margin: 0 auto;
+    max-width: 1000px;
+    margin-bottom: .5em;
+    width: 87%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.star, .search {
+    font-size: 1.5rem;
+}
+
+.star {
+    color: #FFD700;
+}
+
+.star:hover, .search:hover {
+    cursor: pointer;
+}
+
+.header .search-field {
+    display: none;
+}
+
+.header.search-mode .search-field {
+    display: block;
+}
+
+.header.search-mode h1 {
+    display: none;
+}
+
+.header.search-mode .search-field {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.header.search-mode .search-field .search-input {
+    border: 2px solid var(--dim-white);
+    border-radius: 10px 0 0 10px;
+    background-color: var(--green);
+    color: var(--white);
+    text-align: center;
+    padding: .5em 1em;
+    border-right: none;
+}
+
+.header.search-mode .search-field .search-btn {
+    border: 2px solid var(--dim-white);
+    border-radius: 0 10px 10px 0;
+    background-color: var(--green);
+    color: var(--white);
+    text-align: center;
+    padding: .5em .5em;
+}
+
+.day-card:not(.open) {
+    cursor: pointer;
+}

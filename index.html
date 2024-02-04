@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ruka">
+    <title>Ruka's Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <p class="logo">Ruka's Weather App</p>
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item" aria-label="github account">
+                    <a href="#" class="nav-link github" target="_blank">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="nav-item" aria-label="instagram account">
+                    <a href="#" class="nav-link instagram" target="_blank">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="nav-item" aria-label="youtube channel">
+                    <a href="#" class="nav-link youtube" target="_blank">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main aria-labelledby="title">
+        <div class="functionality">
+            <i class="fa fa-star star" aria-hidden="true"></i>
+            <div class="header">
+                <h1 id="title">Check the weather in style</h1>
+                <form class="search-field">
+                    <input type="text" class="search-input">
+                    <button class="search-btn">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </form>
+            </div>
+            <i class="fa fa-search search" aria-hidden="true"></i>
+        </div>
+        <div class="wrapper">
+            <div class="day-card open">
+                <div class="date-container">
+                    <p class="day"></p>
+                    <p class="date"></p>
+                </div>
+                <div class="condition-container">
+                    <p class="condition"></p>
+                    <div class="temp">
+                        <p class="temp-max"><span></span>&deg;</p>
+                        <p class="temp-min"><span></span>&deg;</p>
+                    </div>
+                </div>
+                <div class="extra-wrapper">
+                    <div class="wind">
+                        <img src="./img/icons8-wind-96.png">
+                        <p class="data"><span></span>km/h</p>
+                        <p>Wind</p>
+                    </div>
+                    <div class="humidity-container">
+                        <img src="./img/icons8-hygrometer-96.png">
+                        <p class="data"><span></span>%</p>
+                        <p>Humidity</p>
+                    </div>
+                    <div class="rain">
+                        <img src="./img/icons8-rain-96.png">
+                        <p class="data"><span></span>%</p>
+                        <p>Rain</p>
+                    </div>
+                </div>
+            </div>
+            <div class="day-card">
+                <div class="date-container">
+                    <p class="day"></p>
+                    <p class="date"></p>
+                </div>
+                <div class="condition-container">
+                    <p class="condition"></p>
+                    <div class="temp">
+                        <p class="temp-max"><span></span>&deg;</p>
+                        <p class="temp-min"><span></span>&deg;</p>
+                    </div>
+                </div>
+                <div class="extra-wrapper">
+                    <div class="wind">
+                        <img src="./img/icons8-wind-96.png">
+                        <p class="data"><span></span>km/h</p>
+                        <p>Wind</p>
+                    </div>
+                    <div class="humidity-container">
+                        <img src="./img/icons8-hygrometer-96.png">
+                        <p class="data"><span></span>%</p>
+                        <p>Humidity</p>
+                    </div>
+                    <div class="rain">
+                        <img src="./img/icons8-rain-96.png">
+                        <p class="data"><span></span>%</p>
+                        <p>Rain</p>
+                    </div>
+                </div>
+            </div>
+            <div class="day-card">
+                <div class="date-container">
+                    <p class="day"></p>
+                    <p class="date"></p>
+                </div>
+                <div class="condition-container">
+                    <p class="condition"></p>
+                    <div class="temp">
+                        <p class="temp-max"><span></span>&deg;</p>
+                        <p class="temp-min"><span></span>&deg;</p>
+                    </div>
+                </div>
+                <div class="extra-wrapper">
+                    <div class="wind">
+                        <img src="./img/icons8-wind-96.png">
+                        <p class="data"><span></span>km/h</p>
+                        <p>Wind</p>
+                    </div>
+                    <div class="humidity-container">
+                        <img src="./img/icons8-hygrometer-96.png">
+                        <p class="data"><span></span>%</p>
+                        <p>Humidity</p>
+                    </div>
+                    <div class="rain">
+                        <img src="./img/icons8-rain-96.png">
+                        <p class="data"><span></span>%</p>
+                        <p>Rain</p>
+                    </div>
+                </div>
+            </div>
+            <div class="day-card">
+                <div class="date-container">
+                    <p class="day"></p>
+                    <p class="date"></p>
+                </div>
+                <div class="condition-container">
+                    <p class="condition"></p>
+                    <div class="temp">
+                        <p class="temp-max"><span></span>&deg;</p>
+                        <p class="temp-min"><span></span>&deg;</p>
+                    </div>
+                </div>
+                <div class="extra-wrapper">
+                    <div class="wind">
+                        <img src="./img/icons8-wind-96.png">
+                        <p class="data"><span></span>km/h</p>
+                        <p>Wind</p>
+                    </div>
+                    <div class="humidity-container">
+                        <img src="./img/icons8-hygrometer-96.png">
+                        <p class="data"><span></span>%</p>
+                        <p>Humidity</p>
+                    </div>
+                    <div class="rain">
+                        <img src="./img/icons8-rain-96.png">
+                        <p class="data"><span></span>%</p>
+                        <p>Rain</p>
+                    </div>
+                </div>
+            </div>
+            <div class="day-card">
+                <div class="date-container">
+                    <p class="day"></p>
+                    <p class="date"></p>
+                </div>
+                <div class="condition-container">
+                    <p class="condition"></p>
+                    <div class="temp">
+                        <p class="temp-max"><span></span>&deg;</p>
+                        <p class="temp-min"><span></span>&deg;</p>
+                    </div>
+                </div>
+                <div class="extra-wrapper">
+                    <div class="wind">
+                        <img src="./img/icons8-wind-96.png">
+                        <p class="data"><span></span>km/h</p>
+                        <p>Wind</p>
+                    </div>
+                    <div class="humidity-container">
+                        <img src="./img/icons8-hygrometer-96.png">
+                        <p class="data"><span></span>%</p>
+                        <p>Humidity</p>
+                    </div>
+                    <div class="rain">
+                        <img src="./img/icons8-rain-96.png">
+                        <p class="data"><span></span>%</p>
+                        <p>Rain</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>Created By 
+            <a href="#" target="_blank" class="footer-link">
+                <div class="default-link">Ruka</div>
+                <div class="hover-link">Ruka</div>
+            </a>
+        </div>
+        <div class="seperator"></div>
+        <div>Using the 
+            <a href="https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/" target="_blank" class="footer-link">
+                <div class="default-link">Timeline Weather API</div>
+                <div class="hover-link">Timeline Weather API</div>
+            </a>
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+</html>
