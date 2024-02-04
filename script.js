@@ -6,6 +6,7 @@ const searchField = document.querySelector(".search-field")
 const searchInput = document.querySelector(".search-input")
 const searchButton = document.querySelector(".search-btn")
 const h1 = document.querySelector("h1")
+let currentLocation = null
 
 function createQuery(str) {
     return str.split(' ').join("%20")
@@ -13,8 +14,12 @@ function createQuery(str) {
 
 async function getData(location) {
     const data = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=7NK7MAUGAYCNGFDMBU6CTGTUK&contentType=json`)
-    const jData = await data.json();
-    return jData
+    if (data.ok) {
+      const jData = await data.json();
+      return jData
+    }else {
+      return null
+    }
 }
 
 //Open card on click
@@ -69,6 +74,7 @@ function getDayName(day) {
 
 //render Data on cards
 function renderData(card, data) {
+    card.classList.remove("error")
     const {conditions, humidity, tempmax, tempmin, windspeed, precipprob, datetime} = data
     const dataTime = new Date(datetime)
     const now = new Date()
@@ -84,6 +90,7 @@ function renderData(card, data) {
     card.querySelector(".temp-min span").innerText = tempmin
     card.querySelector(".rain .data span").innerText = precipprob
     card.querySelector(".wind .data span").innerText = windspeed
+    
 
 }
 
@@ -100,25 +107,46 @@ function titleCase(str) {
     return res
 }
 
+//Show error
+
+function showError() {
+  cards.forEach(card => {
+    card.classList.add("error")
+  })
+}
+
 //get the data from user and return result
 
 searchField.addEventListener("submit", (e) => {
     e.preventDefault()
-    switchMode(titleCase(searchInput.value))
-    getData(createQuery(searchInput.value))
-    .then(res => {
-        cards.forEach((card, i) => {
-            renderData(card, res.days[i])
-        })
-    })
+    const location = searchInput.value;
     searchInput.value = ''
+    switchMode(titleCase(location))
+    getData(createQuery(location))
+    .then(res => {
+      if (res !== null) {
+        cards.forEach((card, i) => {
+          renderData(card, res.days[i])
+        })
+      }else {
+        showError()
+      }
+    })
 })
 
 //default to NYC
 
-document.onload = getData(createQuery("new york"))
-                    .then(res => {
-                        cards.forEach((card, i) => {
-                            renderData(card, res.days[i])
-                        })
-                    })
+function callOnLoad() {
+  getData(createQuery("new york"))
+    .then(res => {
+      if (res !== null) {
+        cards.forEach((card, i) => {
+          renderData(card, res.days[i])
+        })
+      }else {
+        showError()
+      }
+    }).catch(() => showError())
+}
+
+document.onload = callOnLoad()

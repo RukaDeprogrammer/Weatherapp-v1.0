@@ -194,6 +194,9 @@ h1 {
 }
 
 .day-card {
+    isolation: isolate;
+    overflow: hidden;
+    position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -348,4 +351,43 @@ h1 {
 
 .day-card:not(.open) {
     cursor: pointer;
+}
+
+.day-card .error-screen {
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+}
+
+.day-card.error .error-screen {
+    background: linear-gradient(-45deg, red,red, rgb(247, 116, 116), red, rgb(247, 116, 116));
+    inset: 0;
+    z-index: 1;
+    width: unset;
+    height: unset;
+
+}
+
+.day-card.error .error-screen .message {
+    display: none;
+}
+
+.day-card.error.open .error-screen .message {
+    display: block;
+}
+
+.day-card.error .error-screen .symbol {
+    border: 2px solid currentColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5em;
+    aspect-ratio: 1;
+    border-radius: 50%;
 }
